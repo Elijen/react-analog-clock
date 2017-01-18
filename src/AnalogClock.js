@@ -10,7 +10,7 @@ export default class AnalogClock extends Component {
     constructor(props) {
         super();
 
-        const date = new Date();
+        const date = props.date;
         this.state = {
             seconds: date.getSeconds(),
             minutes: date.getMinutes(),
@@ -50,9 +50,11 @@ AnalogClock.propTypes = {
         tick: PropTypes.string.isRequired,
     }),
     width: PropTypes.number,
+    date: PropTypes.object
 };
 
 AnalogClock.defaultProps = {
     theme: dark,
     width: 400,
+    date: new Date()
 };
